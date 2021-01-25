@@ -5,10 +5,9 @@ services:
     image: nginx:1.15-alpine
     restart: unless-stopped
     volumes:
-      - ./nginx_certbot_data/nginx:/etc/nginx/conf.d
+      - ./nginx_certbot_data/init_nginx:/etc/nginx/conf.d
       - ./nginx_certbot_data/certbot/conf:/etc/letsencrypt
       - ./nginx_certbot_data/certbot/www:/var/www/certbot
-      - ./nginx_certbot_data/html:/usr/share/nginx/html # THIS STRING DEPENDS ON PROJECT
     ports:
       - "80:80"
       - "443:443"
